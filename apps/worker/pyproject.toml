@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "webp-worker"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "click>=8.1",
+    "webp-shared",
+    "webp-converter",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+]
+
+[project.scripts]
+webp-worker = "webp_worker.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["webp_worker*"]
